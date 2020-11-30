@@ -1,12 +1,17 @@
 package com.elciocestari.drinksmanagerapi.entity;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class UserTest {
+
+    @Mock
+    private User userTestMock;
+
     @Test
     public void testGetName(){
 
@@ -19,5 +24,10 @@ public class UserTest {
         String actual = user.getName();
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testAllAtributes(){
+
     }
 }
