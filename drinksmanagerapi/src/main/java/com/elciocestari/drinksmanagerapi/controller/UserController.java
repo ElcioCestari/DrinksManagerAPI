@@ -2,6 +2,7 @@ package com.elciocestari.drinksmanagerapi.controller;
 
 import com.elciocestari.drinksmanagerapi.entity.User;
 import com.elciocestari.drinksmanagerapi.service.UserService;
+import com.elciocestari.drinksmanagerapi.service.exception.UserNotFoundExcepton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getUserById(@PathVariable Long id){
+    public ResponseEntity getUserById(@PathVariable Long id) throws UserNotFoundExcepton {
         return ResponseEntity.ok().body(userService.getById(id));
     }
 }

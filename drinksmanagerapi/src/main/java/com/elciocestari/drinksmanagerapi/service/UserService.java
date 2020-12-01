@@ -2,6 +2,7 @@ package com.elciocestari.drinksmanagerapi.service;
 
 import com.elciocestari.drinksmanagerapi.entity.User;
 import com.elciocestari.drinksmanagerapi.repository.UserRepository;
+import com.elciocestari.drinksmanagerapi.service.exception.UserNotFoundExcepton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -16,10 +17,10 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User getById(Long id){
+    public User getById(Long id) throws UserNotFoundExcepton {
         return this.userRepository
                 .findById(id)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(() -> new UserNotFoundExcepton(id));
     }
 
     public List<User> getAll(){ return userRepository.findAll(); }
