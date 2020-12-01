@@ -1,4 +1,4 @@
-package com.elciocestari.drinksmanagerapi.service.exception;
+package com.elciocestari.drinksmanagerapi.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

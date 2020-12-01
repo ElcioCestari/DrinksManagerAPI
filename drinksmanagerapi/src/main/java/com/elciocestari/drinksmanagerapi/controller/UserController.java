@@ -2,7 +2,7 @@ package com.elciocestari.drinksmanagerapi.controller;
 
 import com.elciocestari.drinksmanagerapi.entity.User;
 import com.elciocestari.drinksmanagerapi.service.UserService;
-import com.elciocestari.drinksmanagerapi.service.exception.UserNotFoundExcepton;
+import com.elciocestari.drinksmanagerapi.exception.UserNotFoundExcepton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

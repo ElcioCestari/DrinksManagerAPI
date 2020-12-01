@@ -1,8 +1,8 @@
 package com.elciocestari.drinksmanagerapi.service;
 
 import com.elciocestari.drinksmanagerapi.entity.User;
+import com.elciocestari.drinksmanagerapi.exception.UserNotFoundExcepton;
 import com.elciocestari.drinksmanagerapi.repository.UserRepository;
-import com.elciocestari.drinksmanagerapi.service.exception.UserNotFoundExcepton;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -12,7 +12,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
@@ -59,7 +60,7 @@ public class UserServiceTest {
             userActual = userService.getById(userExpected.getId());
         } catch (UserNotFoundExcepton userNotFoundExcepton) {
             userNotFoundExcepton.printStackTrace();
-            fail(userNotFoundExcepton.getMessage());
+            fail (userNotFoundExcepton.getMessage());
         }
 
         assertEquals(userExpected.getId(), userActual.getId());

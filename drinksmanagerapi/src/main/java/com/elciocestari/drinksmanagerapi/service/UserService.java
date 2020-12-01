@@ -1,10 +1,11 @@
 package com.elciocestari.drinksmanagerapi.service;
 
 import com.elciocestari.drinksmanagerapi.entity.User;
+import com.elciocestari.drinksmanagerapi.exception.UserNotFoundExcepton;
 import com.elciocestari.drinksmanagerapi.repository.UserRepository;
-import com.elciocestari.drinksmanagerapi.service.exception.UserNotFoundExcepton;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service

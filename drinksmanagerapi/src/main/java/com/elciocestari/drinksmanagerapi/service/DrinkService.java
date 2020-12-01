@@ -1,6 +1,7 @@
 package com.elciocestari.drinksmanagerapi.service;
 
 import com.elciocestari.drinksmanagerapi.entity.Drink;
+import com.elciocestari.drinksmanagerapi.exception.DrinkNotFoundException;
 import com.elciocestari.drinksmanagerapi.repository.DrinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,10 @@ public class DrinkService {
 
     public List<Drink> findAll(){ return this.drinkRepository.findAll(); }
 
-    public void delete(Long id){
+    public void delete(Long id) throws DrinkNotFoundException {
+        this.drinkRepository.findById(id)
+                .orElseThrow(() -> new DrinkNotFoundException(id));
+
         this.drinkRepository.deleteById(id);
     }
 }
